@@ -14,7 +14,12 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { Avatar } from '@material-ui/core';
 
-import { Person } from '@material-ui/icons';
+import { 
+    Person, 
+    BusinessCenter, 
+    AssignmentTurnedIn,
+    Assessment,
+ } from '@material-ui/icons';
 
 import classes from './sideMenu.module.css';
 import avatar from '../../assets/images/me.JPG';
@@ -47,14 +52,19 @@ const useStyles = makeStyles(theme => ({
 export default function SideMenu() {
     const classes = useStyles();
     const textArray = ['About', 'Experience', 'Projects', 'Skills', 'Awards', 'Education', 'Contact', 'Blog', 'Resume'];
-    const iconArray = ['Person'];    
+    const iconArray = [
+        <Person style={{ color: '#008073' }} />, 
+        <BusinessCenter style={{ color: '#00bcd4' }} />,
+        <AssignmentTurnedIn style={{ color: '#3f51b5' }} />,
+        <Assessment style={{ color: '#9c27b0' }} />,
+    ];
     return (
         <div className={classes.root}>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="h6" noWrap>
-                        Permanent drawer
+                        My Portfolio
           </Typography>
                 </Toolbar>
             </AppBar>
@@ -68,11 +78,13 @@ export default function SideMenu() {
             >
                 <div className={classes.toolbar} />
                 <Avatar alt="Akshay Sonawane" src={avatar} className={classes.large} />
+                <text>Akshay Sonawane</text>
+                <text>Sr. Software Engineer</text>
                 <Divider />
                 <List>
                     {textArray.map((text, index) => (
                         <ListItem button key={text}>
-                            <ListItemIcon><Person /></ListItemIcon>
+                            <ListItemIcon>{iconArray[index]}</ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
