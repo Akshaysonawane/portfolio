@@ -19,6 +19,11 @@ import {
     BusinessCenter, 
     AssignmentTurnedIn,
     Assessment,
+    Star,
+    AccountBalance,
+    Mail,
+    Create,
+    Description,
  } from '@material-ui/icons';
 
 import classes from './sideMenu.module.css';
@@ -57,6 +62,11 @@ export default function SideMenu() {
         <BusinessCenter style={{ color: '#00bcd4' }} />,
         <AssignmentTurnedIn style={{ color: '#3f51b5' }} />,
         <Assessment style={{ color: '#9c27b0' }} />,
+        <Star style={{ color: '#F44336' }} />,
+        <AccountBalance style={{ color: '#ff9800' }} />,
+        <Mail style={{ color: '#795548' }} />,
+        <Create style={{ color: '#ffeb3b' }} />,
+        <Description style={{ color: '#424242' }} />,
     ];
     return (
         <div className={classes.root}>
