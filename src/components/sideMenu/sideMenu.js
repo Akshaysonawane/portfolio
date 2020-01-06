@@ -27,7 +27,7 @@ import {
  } from '@material-ui/icons';
 
 import classes from './sideMenu.module.css';
-import avatar from '../../assets/images/me.JPG';
+import avatar from '../../assets/images/me.png';
 
 const drawerWidth = 240;
 
@@ -46,7 +46,14 @@ const useStyles = makeStyles(theme => ({
     drawerPaper: {
       width: drawerWidth,
     },
-    toolbar: theme.mixins.toolbar,
+    large: {
+        width: theme.spacing(12),
+        height: theme.spacing(12),
+    },
+    //toolbar: theme.mixins.toolbar,
+    toolbar: {
+        marginTop: '5%',
+    },
     content: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.default,
@@ -87,9 +94,9 @@ export default function SideMenu() {
                 anchor="left"
             >
                 <div className={classes.toolbar} />
-                <Avatar alt="Akshay Sonawane" src={avatar} className={classes.large} />
-                <text>Akshay Sonawane</text>
-                <text>Sr. Software Engineer</text>
+                <Avatar style={{alignSelf: 'center'}} alt="Akshay Sonawane" src={avatar} className={classes.large} />
+                <p>Akshay Sonawane</p>
+                <p>Sr. Software Engineer</p>
                 <Divider />
                 <List>
                     {textArray.map((text, index) => (
