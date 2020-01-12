@@ -13,6 +13,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { Avatar } from '@material-ui/core';
+import { Route, Link } from 'react-router-dom';
+
+import About from '../about/about';
+import Experience from '../experience/experience';
+import styleClasses from './sideMenu.module.css';
+import Education from '../education/education';
+import Contact from '../contact/contact';
 
 import { 
     Person, 
@@ -63,15 +70,34 @@ const useStyles = makeStyles(theme => ({
 
 export default function SideMenu() {
     const classes = useStyles();
-    const textArray = ['About', 'Experience', 'Projects', 'Skills', 'Awards', 'Education', 'Contact', 'Blog', 'Resume'];
+    const textArray = [
+        <Link to="/" style={{textDecoration:'none'}} className={styleClasses.a}>
+            About
+        </Link>, 
+        <Link to="/experience" style={{textDecoration:'none'}} className={styleClasses.a}>
+            Experience
+        </Link>,
+        'Projects', 
+        'Skills', 
+        'Awards', 
+        <Link to="/education" style={{textDecoration:'none'}} className={styleClasses.a}>
+            Education
+        </Link>,
+        <Link to="/contact" style={{textDecoration:'none'}} className={styleClasses.a}>
+            Contact
+        </Link>,
+        'Blog', 
+        'Resume'
+    ];
+
     const iconArray = [
-        <Person style={{ color: '#008073' }} />, 
-        <BusinessCenter style={{ color: '#00bcd4' }} />,
+        <Link to="/"><Person style={{ color: '#008073' }} /></Link>, 
+        <Link to="/experience"><BusinessCenter style={{ color: '#00bcd4' }} /></Link>,
         <AssignmentTurnedIn style={{ color: '#3f51b5' }} />,
         <Assessment style={{ color: '#9c27b0' }} />,
         <Star style={{ color: '#F44336' }} />,
-        <AccountBalance style={{ color: '#ff9800' }} />,
-        <Mail style={{ color: '#795548' }} />,
+        <Link to="/education"><AccountBalance style={{ color: '#ff9800' }} /></Link>,
+        <Link to="/contact"><Mail style={{ color: '#795548' }} /></Link>,
         <Create style={{ color: '#ffeb3b' }} />,
         <Description style={{ color: '#424242' }} />,
     ];
@@ -109,29 +135,10 @@ export default function SideMenu() {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-                <Typography paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-                    facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-                    gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-                    donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-                    Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-                    imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-                    arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-                    donec massa sapien faucibus et molestie ac.
-        </Typography>
-                <Typography paragraph>
-                    Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-                    facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-                    tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-                    consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-                    vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-                    hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-                    tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-                    nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-                    accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+                <Route path="/" exact component={About}/>
+                <Route path="/experience" exact component={Experience}/>
+                <Route path="/education" exact component={Education}/>
+                <Route path="/contact" exact component={Contact}/>
             </main>
         </div>
     );
