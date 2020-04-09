@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import * as styles from './educationCard.module.css';
 
 const useStyles = makeStyles({
   card: {
@@ -31,24 +32,27 @@ const EducationCard = (props) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
+  let classNames = [
+    classes.root, 
+    styles.educationCard
+  ];
+
   return (
-    <div className={classes.root}>
+    <div className={classNames}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Card className={classes.card}>
             <CardContent>
-              <Typography variant="h5" component="h2">
+              <Typography className={styles.course} variant="h5" component="h2">
                 {props.course}
               </Typography>
-              <Typography variant="h5" component="h2">
+              <Typography className={styles.college} variant="h5" component="h2">
                 {props.collegeName}
               </Typography>
-              <Typography variant="h5" component="h2">
-                Year Of Passing: {props.yearOfPassing}
-              </Typography>
-              <Typography variant="h5" component="h2">
-                Percentage: {props.percentage}
-              </Typography>
+              <ul>
+                <li>Year Of Passing: {props.yearOfPassing}</li>
+                <li>Percentage: {props.percentage}</li>
+              </ul>
             </CardContent>
           </Card>
         </Grid>

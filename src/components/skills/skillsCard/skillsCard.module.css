@@ -1,0 +1,12 @@
+.techCard {
+    margin: 2rem 0rem;
+    padding: 10px;
+    color: #795548;
+    box-shadow: 8px 5px 5px black;
+    background-color: #f4f4f4;
+}
+
+.skillImages {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}

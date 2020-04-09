@@ -1,0 +1,18 @@
+.course {
+    font-weight: bold !important;
+    color: #7f78d2;
+}
+
+.college {
+    color: #795548;
+    font-size: 1.4rem !important;
+}
+
+ul {
+    display: inline-block;
+    text-align: center;
+}
+
+.educationCard {
+    flex: 6;
+}

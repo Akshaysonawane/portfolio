@@ -1,9 +1,10 @@
 import React from 'react';
 import EducationCard from './educationCard/educationCard';
+import * as styles from './education.module.css';
 
 const education = () => {
     return (
-        <div>
+        <div className={styles.educationCardDiv}>
             <EducationCard 
                 collegeName="D. Y. Patil college of engineering"
                 course="BE(IT)"

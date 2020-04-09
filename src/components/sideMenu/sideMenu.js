@@ -10,8 +10,6 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import { Avatar } from '@material-ui/core';
 import { Route, Link } from 'react-router-dom';
 
@@ -20,6 +18,7 @@ import Experience from '../experience/experience';
 import styleClasses from './sideMenu.module.css';
 import Education from '../education/education';
 import Contact from '../contact/contact';
+import Skills from '../skills/skills';
 
 import { 
     Person, 
@@ -77,8 +76,10 @@ export default function SideMenu() {
         <Link to="/experience" style={{textDecoration:'none'}} className={styleClasses.a}>
             Experience
         </Link>,
-        'Projects', 
-        'Skills', 
+        'Projects',
+        <Link to="/skills" style={{textDecoration:'none'}} className={styleClasses.a}>
+            Skills
+        </Link>,
         'Awards', 
         <Link to="/education" style={{textDecoration:'none'}} className={styleClasses.a}>
             Education
@@ -139,6 +140,7 @@ export default function SideMenu() {
                 <Route path="/experience" exact component={Experience}/>
                 <Route path="/education" exact component={Education}/>
                 <Route path="/contact" exact component={Contact}/>
+                <Route path="/skills" exact component={Skills}/>
             </main>
         </div>
     );
